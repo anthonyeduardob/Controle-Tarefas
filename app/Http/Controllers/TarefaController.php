@@ -15,8 +15,10 @@ class TarefaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $user = auth()->user()->id;
+        $tarefas = Tarefa::where('user_id', $user)->get();
+        return view('tarefa.index', ['tarefas' => $tarefas]);
     }
 
     /**
