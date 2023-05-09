@@ -20,8 +20,10 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
+/* 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+ */
+Route::get('/tarefa/exportacao', [App\Http\Controllers\TarefaController::class, 'exportacao'])->name('tarefa.exportacao');
 Route::resource('tarefa', 'App\Http\Controllers\TarefaController')->middleware('verified');
 
 Route::get('/mensagem-teste', function() {
